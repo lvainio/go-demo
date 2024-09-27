@@ -1,18 +1,18 @@
 package main
 
 import (
-	"crypto/md5"
+	"crypto/sha256"
 	"encoding/hex"
 	"fmt"
 )
 
 func main() {
-	text := "Unsafe MD5 Hash"
+	text := "Secure SHA-256 Hash"
 
-	hash := md5.New()
+	hash := sha256.New()
 	hash.Write([]byte(text))
 
 	checksum := hex.EncodeToString(hash.Sum(nil))
 
-	fmt.Printf("MD5 hash of '%s' is: %s\n", text, checksum)
+	fmt.Printf("SHA-256 hash of '%s' is: %s\n", text, checksum)
 }
